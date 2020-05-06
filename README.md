@@ -18,4 +18,22 @@
 
 7、更改用户信息
 
-[!1]()
+![1](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/1.png)
+
+![2](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/2.png)
+
+![3](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/3.png)
+
+![4](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/4.png)
+
+![5](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/5.png)
+
+![6](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/6.png)
+
+![7](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/7.png)
+
+![8](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/8.png)
+
+![9](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/9.png)
+
+![10](https://github.com/huangwenni/black-cat-diary/blob/master/imgs/10.png)
