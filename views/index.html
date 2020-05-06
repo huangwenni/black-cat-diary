@@ -1,0 +1,71 @@
+<%-include('./_layouts/base.html')%>
+<div class="base_box" id="index_box">
+    <span id="isShow">{{ifOpen}}</span>
+    <div class="diary_editor" v-cloak v-show="boxShow">
+        <header>
+            <i class="close" @click="box_show">×</i>
+            <p><%= day %></p>
+            <p><%= week %></p>
+            <p id="icon_editer"><span id="diary_time"><%= time %></span><i @click="editor_show" v-show="iconEditor"></i>
+            </p>
+        </header>
+        <div class="diary_content">
+            <input type="text" class="diary_title" id="diary_title" placeholder="请输入标题" spellcheck="false" v-cloak
+                   v-show="!iconEditor" value="<%= title %>"/>
+            <textarea class="editor_diary diary_detail" id="editor_diary" spellcheck="false" v-cloak
+                      v-show="!iconEditor" autofocus></textarea>
+            <p class="diary_title" id="showTitle" v-show="iconEditor"><%= title %></p>
+            <pre class="diary_detail" id="showDetail" v-show="iconEditor"><%= diary %></pre>
+        </div>
+        <div class="editer_btn" v-cloak v-show="!iconEditor">
+            <button @click="editor_show">取消</button>
+            <button @click="save">保存</button>
+        </div>
+        <div class="diary_footer"></div>
+    </div>
+    <%-include('./_layouts/header.html')%>
+    <i id="small_editor" @click="box_show"></i>
+    <div class="diary_box">
+        <aside class="diary_aside">
+            <div class="diary_author">
+                <img src="<%= userData.avater %>">
+                <h3><%= userData.userName %></h3>
+                <span>已有日记 <span id="diary_count"><%= count %></span> 篇 <i id="box_show" @click="box_show"></i></span>
+            </div>
+        </aside>
+        <section class="diary_section" id="diary_section">
+            <% diaryData.forEach((item,index)=>{ %>
+            <div class="diary_item" id="<%= 'id-'+item._id %>">
+                <i class="diary_delete" @click="del($event)"></i>
+                <i class="hole_icon" title="发布到树洞" @click="toHole($event)"></i>
+                <div class="switch-container setUp">
+                    <% if(item.status === 1){ %>
+                    <input class="switch" id="<%= item._id %>" type="checkbox" checked/>
+                    <%}else{%>
+                    <input class="switch" id="<%= item._id %>" type="checkbox"/>
+                    <%}%>
+                    <label for="<%= item._id %>" @click="isOpen($event)"></label>
+                </div>
+                <h2 title="<%=item.title%>"><%=item.title%></h2>
+                <span><%-item.diaryTime%></span>
+                <p><%=item.diary%></p>
+                <button>阅读全文</button>
+            </div>
+            <% }) %>
+        </section>
+    </div>
+</div>
+<%-include('./_layouts/script.html')%>
+<script type="module">
+    import {diary, setUp, modify, signOut} from '/javascripts/main.js';
+    diary();
+    let btn = document.getElementById('setUp_btn');
+    btn.onclick = () => {modify()};
+    let setUpBtn = document.getElementById('setUp_icon');
+    setUpBtn.onclick = () => {setUp()};
+    let closeBtn = document.getElementById('setUp_close');
+    closeBtn.onclick = () => {setUp()};
+    let outBtn = document.getElementById('sign_out');
+    outBtn.onclick = () => {signOut()};
+</script>
+

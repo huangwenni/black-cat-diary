@@ -1,0 +1,13 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="module">
+    import {setUp,modify,signOut} from '/javascripts/main.js';
+    let btn = document.getElementById('setUp_btn');
+    btn.onclick = ()=>{modify()};
+    let setUpBtn = document.getElementById('setUp_icon');
+    setUpBtn.onclick = ()=>{setUp()};
+    let closeBtn = document.getElementById('setUp_close');
+    closeBtn.onclick = ()=>{setUp()};
+    let outBtn = document.getElementById('sign_out');
+    outBtn.onclick = ()=>{signOut()};
+</script>

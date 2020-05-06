@@ -1,0 +1,25 @@
+<%-include('./_layouts/base.html')%>
+<div class="login_bg">
+    <div class="login_box">
+        <h3 id="logo">黑猫日记</h3>
+        <p>登陆</p>
+        <form id="login_form">
+            <div class="login_input">
+                <input type="text" id="name" placeholder="请输入昵称" autofocus autocomplete="off" required spellcheck = "false">
+            </div>
+            <div class="login_input">
+                <input type="password" id="password" placeholder="请输入密码" autofocus required>
+            </div>
+            <a href="/register">没有账号，点击申请→</a>
+            <button type="button">登陆</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="module">
+    import {login} from "/javascripts/main.js";
+    const btn = document.getElementsByTagName('button')[0];
+    btn.onclick = ()=> {login()}
+</script>
+

@@ -1,0 +1,24 @@
+<%-include('./_layouts/base.html')%>
+<div class="base_box">
+    <%-include('./_layouts/header.html')%>
+    <div class="diary_box">
+        <aside class="diary_aside">
+            <div class="diary_author">
+                <img src="<%= userData.avater %>">
+                <h3><%= userData.userName %></h3>
+                <span> <%= count %> 篇  </span>
+            </div>
+        </aside>
+        <section class="diary_section">
+            <% diaryData.forEach((item,index)=>{ %>
+            <div class="diary_item">
+                <h2 title="<%=item.title%>"><%=item.title%></h2>
+                <span><%-item.diaryTime%></span>
+                <p><%=item.diary%></p>
+                <button>阅读全文</button>
+            </div>
+            <% }) %>
+        </section>
+    </div>
+</div>
+<%-include('./_layouts/script.html')%>

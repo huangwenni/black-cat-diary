@@ -1,0 +1,33 @@
+<header class="base_header" id="base_header">
+    <div id="setUp">
+        <i class="close" id="setUp_close">×</i>
+        <p>设置</p>
+        <form id="setUp_form">
+            <ul id="setUp_ul">
+                <li><input type="text" spellcheck="false" value="<%= userData.userName %>" id="setUp_text" name="setUp_name"/></li>
+                <li><input type="password" value="<%= userData.password %>" id="setUp_pw" name="setUp_pw"/></li>
+                <li>
+                    <input type="file" id="setUp_file" name="setUp_avater"/>
+                    <label for="setUp_file">+ 点此上传头像</label>
+                </li>
+                <button type="button" id="setUp_btn" onclick="modify()">确认</button>
+            </ul>
+        </form>
+    </div>
+    <nav id="top_nav">
+        <ul>
+            <li id="sign_out" title="退出"></li>
+            <li id="setUp_icon"title="设置"></li>
+            <li id="avater" title ="<%= userData.userName %>"><img src="<%= userData.avater %>"></li>
+        </ul>
+    </nav>
+    <img src="/images/cat.png"/>
+    <h1>黑猫日记</h1>
+    <nav>
+        <ul class="base_nav">
+            <li><a href="/index">写日记</a></li>
+            <li><a href="/myHome">个人主页</a></li>
+            <li><a href="/hole">树洞</a></li>
+        </ul>
+    </nav>
+</header>

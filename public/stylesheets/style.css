@@ -1,0 +1,932 @@
+/* base style */
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 13.0208333vw;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #fbf7fa;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+input, button, textarea {
+    border: 0;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+textarea {
+    outline: 0;
+    resize: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 142, 135, 0.6);
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot');/* IE9*/
+    src: url('../fonts/icomoon.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../fonts/icomoon.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../fonts/icomoon.woff') format('woff'), /* chrome、firefox */ url('../fonts/icomoon.svg#icomoon') format('svg');/*  iOS 4.1- */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* login */
+.login_bg {
+    width: 100%;
+    height: 100%;
+    background: url("../images/login.jpeg") center center no-repeat;
+    background-size: cover;
+}
+
+.login_box {
+    width: 350px;
+    height: 500px;
+    background-color: #ffffff8f;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    padding: 100px 0;
+    box-sizing: border-box;
+}
+
+#logo {
+    font-size: 40px;
+    position: absolute;
+    top: -27px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ebd3d7;
+    text-shadow: 0px -2px 5px #5b5b5b;
+}
+
+.login_box > p {
+    font-size: 1.7em;
+    text-align: center;
+    color: #a583a5;
+    display: block;
+    margin-bottom: 35px;
+}
+
+#login_form {
+    padding: 0 70px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.login_input {
+    margin-bottom: 20px;
+}
+
+.login_input > input {
+    background-color: #d2909b4d;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    color: rgba(99, 93, 96, 0.85);
+    display: block;
+    margin: 0 auto;
+}
+
+#login_form > button {
+    width: 100%;
+    height: 30px;
+    margin-top: 20px;
+    background-color: #c5a1a8;
+    cursor: pointer;
+    color: white;
+}
+
+#login_form > a {
+    position: absolute;
+    font-size: 10px;
+    right: 70px;
+    bottom: 32px;
+    color: #849298;
+}
+
+#login_form > a:hover {
+    color: #00B7FF;
+    cursor: pointer;
+}
+
+.register_pattern {
+    position: absolute;
+    background-color: #efb9c5;
+    text-align: center;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    width: 210px;
+    border-radius: 5px;
+    line-height: 35px;
+    color: firebrick;
+    font-size: 12px;
+    border: 1px solid #b86969;
+    box-sizing: border-box;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+/* 公共的header */
+.base_header {
+    width: 100%;
+    position: relative;
+    border-bottom: 0.01rem solid #797676;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#top_nav {
+    position: absolute;
+    height: 0.3rem;
+    right: 0;
+    top: 0;
+}
+
+#top_nav > ul {
+    width: 100%;
+    height: 100%;
+}
+
+#top_nav > ul > li {
+    height: 0.3rem;
+    width: 0.2rem;
+    float: right;
+    line-height: 0.3rem;
+    cursor: pointer;
+}
+
+#sign_out:before {
+    font-family: icomoon;
+    content: '\ea14';
+    font-size: 0.14rem;
+    color: #d7a2a2;
+}
+
+#setUp_icon:before {
+    font-family: icomoon;
+    content: '\e994';
+    font-size: 0.14rem;
+    color: #d7a2a2;
+}
+
+#avater {
+    position: relative;
+}
+
+#avater > img {
+    width: 0.16rem;
+    height: 0.16rem;
+    border-radius: 0.08rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#setUp {
+    position: fixed;
+    width: 2rem;
+    height: 1.5rem;
+    background-color: white;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.14rem;
+    border-radius: 0.1rem;
+    overflow: hidden;
+    border: 0.01rem solid #b86969;
+    box-sizing: border-box;
+    display: none;
+}
+
+#setUp_close {
+    color: white;
+    right: 0.05rem;
+    top: -0.03rem;
+}
+
+#setUp > p {
+    height: 0.2rem;
+    width: 100%;
+    background-color: #f5bfbf;
+    text-align: center;
+    color: white;
+    border-bottom: 0.005rem solid #b86969;
+    font-size: 0.12rem;
+    line-height: 0.2rem;
+    box-sizing: border-box;
+}
+
+#setUp_form {
+    font-size: 0.12rem;
+}
+
+#setUp_ul > li {
+    width: 60%;
+    margin: 0.1rem auto;
+    margin-right: 0.2rem;
+    position: relative;
+}
+
+#setUp_ul > li > input {
+    width: 100%;
+    height: 0.18rem;
+    border-radius: 0.03rem;
+    background-color: #a0636e;
+    padding-left: 0.05rem;
+    box-sizing: border-box;
+    color: white;
+    font-size: 0.08rem;
+}
+
+#setUp_ul > li:before {
+    color: #3b0707;
+}
+
+#setUp_ul > li:nth-of-type(1):before {
+    content: '姓名：';
+    position: absolute;
+    top: 0;
+    left: -0.3rem;
+    font-size: 0.1rem;
+    line-height: 0.18rem;
+}
+
+#setUp_ul > li:nth-of-type(2):before {
+    content: '密码：';
+    position: absolute;
+    top: 0;
+    left: -0.3rem;
+    font-size: 0.1rem;
+    line-height: 0.18rem;
+}
+
+#setUp_ul > li:nth-of-type(3):before {
+    content: '头像：';
+    position: absolute;
+    top: 0;
+    left: -0.3rem;
+    font-size: 0.1rem;
+    line-height: 0.18rem;
+}
+
+#setUp_file {
+    display: none;
+}
+
+#setUp_file + label {
+    display: block;
+    width: 100%;
+    height: 0.18rem;
+    background-color: #eeeeee;
+    border-radius: 0.03rem;
+    font-size: 0.08rem;
+    text-align: center;
+    line-height: 0.18rem;
+    color: #5a0515;
+    cursor: pointer;
+}
+
+#setUp_ul > button {
+    position: absolute;
+    width: 0.5rem;
+    height: 0.15rem;
+    color: white;
+    background-color: #a0636e;
+    border-radius: 0.05rem;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    font-size: 0.08rem;
+}
+
+.base_header > img {
+    width: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.base_header > h1 {
+    font-size: 0.2rem;
+    color: #a583a5;
+    margin-bottom: 0.1rem;
+}
+
+.base_header > nav {
+    width: 100%;
+    height: 0.3rem;
+}
+
+.base_nav {
+    width: 2.5rem;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    grid-template-rows: 100%;
+    font-size: 0.13rem;
+    text-align: center;
+}
+
+.base_nav > li > a {
+    display: block;
+    height: 100%;
+    line-height: 0.3rem;
+    color: #9c6868;
+}
+
+/* diary */
+.diary_box {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 0.15rem;
+}
+
+.diary_aside {
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    margin-right: 0.15rem;
+    border-radius: 0.05rem;
+}
+
+.diary_author {
+    color: #634163;
+    background-color: #f8e7e8;
+    font-size: 0.1rem;
+    border-radius: 0.05rem;
+}
+
+.diary_author > img {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    margin-top: 0.2rem;
+}
+
+.diary_author > h3 {
+    margin-bottom: 0.02rem;
+}
+
+.diary_author > span {
+    font-size: 0.06rem;
+    display: block;
+    width: 100%;
+    height: 0.25rem;
+}
+
+.diary_author > span > i {
+    cursor: pointer;;
+    margin-left: 0.05rem;
+    position: relative;
+}
+
+#box_show:before {
+    position: absolute;
+    font-family: "icomoon";
+    content: "\e900";
+    font-size: 0.10rem;
+    font-weight: bold;
+    font-style: normal;
+    top: -0.01rem;
+}
+
+.diary_section {
+    width: 75%;
+}
+
+.diary_item {
+    background-color: #f7e3e3c9;
+    padding: 0.1rem 0.2rem 0.1rem 0.2rem;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 0.05rem;
+    margin-bottom: 0.1rem;
+    position: relative;
+}
+
+.diary_delete {
+    width: 0.2rem;
+    height: 0.2rem;
+    position: absolute;
+    left: 0.1rem;
+    top: 0.1rem;
+    cursor: pointer;
+}
+
+.diary_delete:before {
+    font-family: icomoon;
+    content: '\e9ac';
+    font-size: 0.15rem;
+    font-style: normal;
+    color: #7d607d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hole_icon {
+    width: 0.2rem;
+    height: 0.2rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.1rem;
+    cursor: pointer;
+    font-size: 0.15rem;
+    font-style: normal;
+}
+
+.hole_icon:before {
+    font-family: icomoon;
+    content: '\e9a4';
+    color: #aa89aa;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* diary  隐藏和显示的开关 默认开启--start*/
+.switch-container {
+    height: 0.15rem;
+    width: 0.3rem;
+    position: absolute;
+}
+
+.setUp {
+    right: 0.1rem;
+    top: 0.1rem;
+}
+
+.switch {
+    display: none;
+}
+
+.switch-container > label {
+    display: block;
+    background-color: #d89a9a;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.switch-container > label:before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0.15rem;
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0.01rem 0.01rem 0.01rem 0.01rem rgba(0, 0, 0, 0.08);
+    -webkit-transition: all 0.2s ease;
+    opacity: 0;
+}
+
+.switch-container > label:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0.15rem;
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0.01rem 0.01rem 0.01rem 0.01rem rgba(0, 0, 0, 0.08);
+    -webkit-transition: all 0.2s ease;
+    position: relative;
+    top: -0.15rem;
+    left: 0.15rem;
+    opacity: 1;
+}
+
+.switch:checked ~ label:before {
+    opacity: 1;
+}
+
+.switch:checked ~ label:after {
+    opacity: 0;
+}
+
+.switch:checked ~ label {
+    background-color: #dedede;
+}
+
+/* diary  隐藏和显示的开关 --end*/
+.diary_item > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-bottom: 0.1rem;
+    text-align: left;
+    color: #5b5b5b;
+    font-size: 0.1rem;
+}
+
+.diary_item > button {
+    padding: 0.02rem 0.2rem;
+    background-color: #e6c0c0;
+    color: #7f4a4a;
+    font-size: 0.08rem;
+    cursor: pointer;
+}
+
+.diary_item > h2 {
+    color: #634163;
+    font-size: 0.13rem;
+    width: 2.5rem;
+    margin: 0 auto 0.05rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.diary_item > span {
+    color: #6b2020;
+    display: block;
+    margin-bottom: 0.05rem;
+    font-size: 0.1rem;
+}
+
+.diary_editor {
+    border-radius: 0.1rem;
+    position: fixed;
+    width: 3rem;
+    height: 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.diary_editor > header {
+    background-color: #f5bfbf;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 0.10rem;
+    overflow: hidden;
+    padding-top: 0.05rem;
+    box-sizing: border-box;
+}
+
+.diary_editor > header > p {
+    margin-top: 0.05rem;
+}
+
+#icon_editer {
+    position: relative;
+    margin-bottom: 0.08rem;
+}
+
+#icon_editer > i {
+    position: absolute;
+    left: 50%;
+    margin-top: -0.02rem;
+    margin-left: 0.2rem;
+    cursor: pointer;
+    padding: 0.02rem;
+}
+
+#icon_editer > i:before {
+    font-family: icomoon;
+    content: '\e900';
+    font-weight: bold;
+    font-size: 0.12rem;
+    font-style: normal;
+}
+
+.diary_footer {
+    background-color: #f5bfbf;
+    height: 0.08rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.close {
+    font-size: 0.2rem;
+    position: absolute;
+    right: 0.1rem;
+    top: 0.05rem;
+    cursor: pointer;
+    padding: 0.02rem;
+}
+
+.diary_content {
+    height: 1.5rem;
+    width: 100%;
+    padding: 0.1rem 0.15rem;
+    box-sizing: border-box;
+    font-size: 0.1rem;
+    color: #5b5b5b;
+}
+
+.diary_title {
+    font-size: 0.12rem;
+    margin-bottom: 0.1rem;
+}
+
+.diary_detail {
+    color: #2a1010;
+    font-size: 0.1rem;
+}
+
+.editor_diary {
+    width: 100%;
+    height: 100%;
+}
+
+.editer_btn {
+    text-align: right;
+    margin-bottom: 0.1rem;
+}
+
+.editer_btn > button {
+    background-color: #f5bfbf;
+    border-radius: 0.05rem;
+    margin-right: 0.05rem;
+    color: white;
+    font-size: 0.10rem;
+    cursor: pointer;
+}
+
+#isShow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 666;
+    font-size: 0.15rem;
+    padding: 0.05rem 0.1rem;
+    background-color: #c5b4ce;
+    border-radius: 0.05rem;
+    color: #5d4343;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: 2;
+    opacity: 0;
+    display: none;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* hole */
+.hole_section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#hole_name {
+    position: absolute;
+    top: 0.15rem;
+    left: 0.2rem;
+    font-size: 0.12rem;
+    color: #797b8a;
+}
+
+.love {
+    width: 0.2rem;
+    height: 0.2rem;
+    display: block;
+    position: absolute;
+    bottom: 0.1rem;
+    right: 0.5rem;
+    cursor: pointer;
+}
+
+.love:before {
+    font-family: icomoon;
+    content: '\e902';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.14rem;
+    color: #7d607d;
+}
+
+.love:after {
+    font-family: icomoon;
+    content: '\e903';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.14rem;
+    opacity: 0;
+    color: #ca5757;
+}
+
+.love_input:checked ~ label:before {
+    opacity: 0;
+}
+
+.love_input:checked ~ label:after {
+    opacity: 1;
+}
+
+.love_input {
+    display: none;
+}
+
+.comment {
+    width: 0.2rem;
+    height: 0.2rem;
+    display: block;
+    position: absolute;
+    bottom: 0.1rem;
+    right: 0.25rem;
+    cursor: pointer;
+}
+
+.comment:before {
+    font-family: icomoon;
+    content: '\e904';
+    font-style: normal;
+    font-size: 0.12rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #7d607d;
+    font-weight: bold;
+}
+
+.comment_box > header > span {
+    padding: 0.05rem 0;
+    display: block;
+}
+
+.hole_comment {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.comment_box > header > i {
+    color: white;
+    padding: 0;
+}
+
+.hole_comment_item {
+    margin: 0.1rem;
+    background-color: #fadcce;
+    border-radius: 0.1rem;
+    padding: 0.05rem 0.1rem;
+    box-sizing: border-box;
+}
+
+.hole_comment_item > p {
+    color: #6b2020;
+    font-size: 0.08rem;
+}
+
+.hole_comment_item > span {
+    color: #501e1e;
+    font-size: 0.1rem;
+}
+
+.hole_comment_editor {
+    position: absolute;
+    bottom: 0;
+    height: 0.5rem;
+    width: 100%;
+    border-top: 0.01rem solid #eadfdf;
+}
+
+.hole_comment_editor > textarea {
+    width: 100%;
+    height: 0.5rem;
+    padding: 0.1rem 0.5rem 0.1rem 0.1rem;
+    box-sizing: border-box;
+    font-size: 0.1rem;
+}
+
+#send_comment {
+    display: block;
+    height: 0.5rem;
+    width: 0.4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 0.5rem;
+    text-align: center;
+    color: #6b2020;
+    cursor: pointer;
+    font-size: 0.1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .base_box {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    html {
+        font-size: 26.6666667vw;
+    }
+
+    .diary_box {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .diary_aside {
+        display: none;
+    }
+
+    .diary_section {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .diary_editor {
+        height: 5rem;
+    }
+
+    .diary_footer {
+        height: 0.2rem;
+    }
+
+    .diary_content {
+        height: 3.8rem;
+    }
+
+    #small_editor {
+        cursor: pointer;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 0.8rem;
+        background-color: #e4c0c0;
+        display: block;
+        position: fixed;
+        top: 85%;
+        right: 0.3rem;
+        z-index: 999;
+    }
+
+    #small_editor:before {
+        position: absolute;
+        font-family: "icomoon";
+        content: "\e900";
+        font-size: 0.4rem;
+        font-weight: bold;
+        font-style: normal;
+        top: 50%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+        color: #755f5f;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .base_box {
+        padding: 0 0.5rem 0 0.5rem;
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 13.0208333vw;
+    }
+}
