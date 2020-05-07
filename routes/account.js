@@ -304,6 +304,6 @@ router.get('/signOut',(req,res,next)=>{
     res.send({code:0,msg:'退出成功'})
 });
 
-/* --signOut end--*/
+/* --signOut end-- */
 
 module.exports = router;

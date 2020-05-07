@@ -2,11 +2,11 @@
 <div class="base_box">
     <%-include('./_layouts/header.html')%>
     <div class="diary_box" id="hole_box">
-        <section class="hole_section" >
+        <section class="hole_section">
             <% diaryData.forEach(item=>{ %>
             <div class="diary_item" id="<%= 'id-'+item._id %>">
                 <span id="hole_name"><%= item.userName %></span>
-                <h2 title = "<%=item.title%>"><%=item.title%></h2>
+                <h2 title="<%=item.title%>"><%=item.title%></h2>
                 <span><%-item.diaryTime%></span>
                 <p><%=item.diary%></p>
                 <button>阅读全文</button>
@@ -16,13 +16,13 @@
                 <input type="checkbox" class="love_input" id="<%= item._id %>"/>
                 <%}%>
                 <label class="love" id="love_label" for="<%= item._id %>"></label>
-                <i class="comment" @click = "box_show($event)"></i>
+                <i class="comment" @click="box_show($event)"></i>
             </div>
             <% }) %>
-            <div class="comment_box diary_editor" v-show = "boxShow" v-cloak>
+            <div class="comment_box diary_editor" v-show="boxShow" v-cloak>
                 <header>
                     <span>留言</span>
-                    <i class="close" @click = "box_show">×</i>
+                    <i class="close" @click="box_show">×</i>
                 </header>
                 <section class="hole_comment">
                     <div class="hole_comment_box"></div>
@@ -37,8 +37,11 @@
 </div>
 <%-include('./_layouts/script.html')%>
 <script type="module">
-    import {love,hole} from '/javascripts/main.js';
+    import {love, hole} from '/javascripts/main.js';
+
     hole();
     const btn = document.getElementById('love_label');
-    btn.onclick = (e)=>{love(e);}
+    btn.onclick = (e) => {
+        love(e);
+    }
 </script>
