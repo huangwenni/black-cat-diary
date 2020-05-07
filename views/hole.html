@@ -3,7 +3,7 @@
     <%-include('./_layouts/header.html')%>
     <div class="diary_box" id="hole_box">
         <section class="hole_section" >
-            <% diaryData.forEach((item,index)=>{ %>
+            <% diaryData.forEach(item=>{ %>
             <div class="diary_item" id="<%= 'id-'+item._id %>">
                 <span id="hole_name"><%= item.userName %></span>
                 <h2 title = "<%=item.title%>"><%=item.title%></h2>

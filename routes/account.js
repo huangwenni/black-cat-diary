@@ -200,52 +200,42 @@ router.get('/myHome', (req, res, next) => {
 router.get('/hole', (req, res, next) => {
     diaryDB.find({hole: 1}, {}, true)
         .then(data => {
-            let diaryData = [];
             let format, diaryTime;
-            data.forEach((item, index) => {
-                format = new Times(item.last_change_time);
-                diaryTime = format.getDate('YY.MM.DD') + '&nbsp;&nbsp;&nbsp;' + format.getTime() + '&nbsp;&nbsp;&nbsp;' + format.getWeek();
-                diaryData.unshift({...item._doc, diaryTime})
-            });
-            return new Promise(((resolve, reject) => {
-                resolve(diaryData)
-            }))
-        })
-        .then(data => {
             let userId = req.session.user._id.toString();
-            let diaryData = [];
-            return new Promise((resolve, reject) => {
-                data.map((item, index) => {
-                    loveDB.find({userId, loveId: item._id.toString()}, (err, data) => {
-                        if (data) {
-                            item.love = 'true';
-                            diaryData.push(item)
-                            return item;
-                        } else {
-                            diaryData.push(item)
-                        }
-                    })
-                });
-                setTimeout(() => {
-                    resolve(diaryData)
-                }, 100);
-            })
-        })
-        .then(data => {
-            data.map((item,index)=>{
-                userDB.find({_id:ObjectId(item.userId)}).then(data=>{
-                    item.userName = data.userName;
-                    return item
-                })
+            let result = data.map(item=>{
+                return new Promise((resolve => {
+                    format = new Times(item.last_change_time);
+                    diaryTime = format.getDate('YY.MM.DD') + '&nbsp;&nbsp;&nbsp;' + format.getTime() + '&nbsp;&nbsp;&nbsp;' + format.getWeek();
+                    item.diaryTime = diaryTime;
+                    userDB.find({_id: ObjectId(item.userId)})
+                        .then(data => {
+                            item.userName = data.userName;
+                            return loveDB.find({userId, loveId: item._id.toString()})
+                        })
+                        .then(data=>{
+                            if (data){
+                                item.love = 'true';
+                                resolve(item)
+                            } else{
+                                resolve(item)
+                            }
+                        });
+                }))
             });
-            setTimeout(() => {
-                console.log(data);
-                res.render('hole', {
-                    userData: req.session.user,
-                    diaryData: data,
+            Promise.all(result)
+                .then(result => {
+                    return new Promise(resolve => {
+                        resolve(result)
+                    })
                 })
-            }, 100);
-    })
+                .then(data => {
+                    data.reverse();
+                    res.render('hole', {
+                        userData: req.session.user,
+                        diaryData: data
+                    });
+                })
+        })
 });
 router.post('/changeHole', (req, res, next) => {
     let id = ObjectId(req.body.id);
@@ -288,23 +278,24 @@ router.post('/leaveMsg',(req,res,next)=>{
 });
 router.get('/showLeave',(req,res,next)=>{
     let diaryId = req.query.id;
-    let leaveData = [];
     LeaveMsgDB.find({diaryId})
         .then(data => {
             if (data) {
-                data.leaveMsg.forEach((item, index) => {
-                    let userId = item.userId;
-                    userDB.find({_id: ObjectId(userId)}).then(data => {
-                        leaveData.push({...item, ...data._doc});
-                    });
+                let result = data.leaveMsg.map((item, index) => {
+                    return new Promise((resolve => {
+                        let userId = item.userId;
+                        userDB.find({_id: ObjectId(userId)}).then(data => {
+                            item.userName = data.userName;
+                            resolve(item);
+                        });
+                    }));
                 });
-                setTimeout(() => {
+                Promise.all(result).then(leaveData=>{
                     res.send({leaveData,msg:'获取留言成功'})
-                }, 100);
+                });
             }
         })
 });
-
 /* --Hole page end--*/
 
 /* --signOut start--*/
